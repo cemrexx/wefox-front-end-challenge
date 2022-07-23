@@ -1,0 +1,19 @@
+.tab-control-button{   
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    color:#31515E;
+    text-align: center;   
+    cursor:pointer;
+    width:180px; 
+    margin-left:1px;
+    background-color:#cee1e7;
+    border-top-left-radius:5px; 
+    border-top-right-radius:5px; 
+    box-shadow: 0px 0px 15px 1px
+    rgba(49, 81, 94, 0.1);
+}
+.tab-control-button.selected{
+    background:  linear-gradient(88.64deg, #4FAFA8 -2.64%, #AFD1CD 95.34%);
+
+}

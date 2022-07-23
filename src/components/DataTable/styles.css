@@ -1,0 +1,99 @@
+.data-table {   
+    position:relative;
+    height:100%;
+    width:100%;    
+    background-color: #fbfbfb;
+    border-radius: 15px;
+    display:flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 15px 1px
+    rgba(49, 81, 94, 0.1);
+    margin: 20px 0px;
+}
+
+.data-table-header {
+    min-height:40px;   
+    display: flex;
+    align-items: center;
+    background :linear-gradient(180deg, rgba(49, 81, 94, 0.1) 0%, rgba(168, 214, 210, 0.1) 139.6%);
+}
+
+.data-table-header-column {
+    height:40px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    padding:12px;
+    border-right :1px solid #31515E;
+}
+.data-table-header-column:last-child{
+    border-right:none;
+}
+
+.data-table-body {
+    height:100%;
+    width:100%;
+    flex-direction: column;
+    display:flex;
+   
+}
+
+.data-table-item {    
+    height:100%;
+    width:100%;
+    display:flex;
+    min-height: 40px;   
+    border-bottom: 1px solid #31515E; 
+}
+.data-table-item:last-child{
+    border-bottom:none;
+}
+
+.data-table-item-column {    
+    height:auto;
+    width:100%;
+    display: flex;
+    align-items: center;
+    padding:12px;
+    border-right: 1px solid #31515E;
+}
+.data-table-item-column:last-child{
+    border-right:none;
+}
+.action-row>button{
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #cee1e7;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 8px;
+}
+.action-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:40px;
+    width:100%;
+}
+.action-row>button:hover{
+    background-color: transparent;
+    background:  linear-gradient(88.64deg, #4FAFA8 -2.64%, #AFD1CD 95.34%);
+    color: #fbfbfb;
+    border:none
+}
+.action-row>button>.table-icon{
+    width:20px !important;
+    height:20px !important;
+    background-size:30px 30px !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: grayscale(100%) brightness(10%) sepia(100%) hue-rotate(140deg) saturate(1000%) contrast(0.8);
+}  
+.action-row>button>.table-icon.icon-edit{
+    background-image: url('../../icons/icon-edit.svg'); 
+}
+.action-row>button>.table-icon.icon-delete{
+    background-image: url('../../icons/icon-delete.svg'); 
+    
+}

@@ -1,0 +1,27 @@
+html {
+    box-sizing: border-box;
+}
+button {
+    border: none;
+    background: transparent;
+    cursor:pointer;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.app-root {
+    padding: 16px;
+    background-color: #fbfbfb;
+}
+.tab-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin:8px 0px;
+}
+.body-container{
+    padding-bottom: 16px;
+}
+
+

@@ -1,0 +1,41 @@
+.ol-map {
+    min-width: 600px;
+    min-height: 500px;
+    margin: 50px;
+    height: 500px;
+    width: "100%";
+  }
+  .ol-control {
+    position: absolute;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 4px;
+    padding: 2px;
+    bottom: 13px;
+    right: 22px;
+  }
+  .ol-full-screen {
+    top: .5em;
+    right: .5em;
+  }
+
+  .map-container{
+    height: 80vh;
+    width: 100%;
+  }
+  .info-box{
+    background-color: #fbfbfb;
+    border-radius: 5px;
+    margin: 15px 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:4px;
+  }
+  .info-box>.info-icon{
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+  }

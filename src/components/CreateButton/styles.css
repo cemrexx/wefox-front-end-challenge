@@ -1,0 +1,21 @@
+.create-button{
+cursor:pointer;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: absolute;
+left: 83.62%;
+right: 2.36%;
+height:30px;
+border-radius: 5px;
+background-color: #cee1e7;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+}
+.create-button:hover{
+    background-color: transparent;
+    background:  linear-gradient(88.64deg, #4FAFA8 -2.64%, #AFD1CD 95.34%);
+    color: #fbfbfb;
+    border:none
+}
