@@ -1,34 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect  } from "react";
+import useModalVisible from "../../hooks/useModalVisible";
+
 
 import './styles.css';
 
-const Modal = (props:any) => {
-  const closeOnEscapeKeyDown = (e: KeyboardEvent) =>{
-    if ((e.charCode || e.keyCode) === 27) {
-      props.onClose();
-    }
-  };
+type ModalProps = {
+  children: React.ReactNode;
+  onClose: () => void;
+  show: boolean;
+  title: string;
+}
+
+const Modal = (props:ModalProps) => {
+  const { children, onClose, show, title } = props;
+
+  const { ref, modalVisible, setModalVisible } = useModalVisible(false);
 
   useEffect(() => {
-    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
-    return function cleanup() {
-      document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
-    };
-  }, [closeOnEscapeKeyDown]);
+    if(show){
+      setModalVisible(true);
+    }else{
+      setModalVisible(false);
+    }
+  }, [setModalVisible, show]);
 
   return (
  
-      <div className={`modal ${props.show ? 'show' : ''}` } onClick={props.onClose}>
+      <div  ref={ref} className={`modal ${modalVisible ? 'show' : ''}` } onClick={onClose}>
         <div className="modal-content" onClick={e => e.stopPropagation()}>
           <div className="modal-header">
-            <h4 className="modal-title">{props.title}</h4>
+            <h4 className="modal-title">{title}</h4>
           </div>
-          <div className="modal-body">{props.children}</div>
+          <div className="modal-body">{children}</div>
          
         </div>
       </div>
 
-   
   );
 };
 
