@@ -14,9 +14,17 @@ interface IPostsProps {
   data: {
     id: number; 
     content: string;
+    title: string;
   }[],
   handleEditData: (id:number) => void;
   handleDeleteData: (id:number) => void;
+}
+interface ActionProps {
+  id: number;
+}
+
+interface RowType {
+  [key: string]: any;
 }
 
 
@@ -43,15 +51,38 @@ const DataTable : React.FC<IPostsProps>= ({  data, handleEditData, handleDeleteD
       width: '10%',
     }
   ];
-  const handleEdit =(val: any)=>{
-    handleEditData(val.id);
+  const handleEdit =(id: number)=>{
+    handleEditData(id);
 
   }
-  const handleDelete =(val: any)=>{
-   handleDeleteData(val.id);
+  const handleDelete =(id: number)=>{
+   handleDeleteData(id);
   }
 
-  function ActionRow(id:any){
+  const  ListItem : React.FC<RowType> = (props) => {   
+    const { item  } = props; 
+    return (
+      <div className="data-table-item" key={item.id as Key}>
+      {columns.map((column:Column) => (
+        <>
+              {column.id === 'actions'
+            ? (
+              <div className="data-table-item-column" style={{ width: column.width }}>
+              <ActionRow id={item.id}></ActionRow>
+              </div>
+            )
+            : (
+              <div className="data-table-item-column" style={{ width: column.width }}>
+                <div> {item[column.id]}</div>
+              </div>
+            )}     
+        </>
+      ))}
+    </div>
+    )
+  }
+
+  const  ActionRow : React.FC<ActionProps>=({id}) =>{
 
     return(
       <div className="action-row">
@@ -76,27 +107,8 @@ const DataTable : React.FC<IPostsProps>= ({  data, handleEditData, handleDeleteD
         ))}
       </div>
       <div className="data-table-body">
-        {data.map((item: any) => (
-          <>
-            <div className="data-table-item" key={item.id}>
-              {columns.map((column:Column) => (
-                <>
-                      {column.id == 'actions'
-                    ? (
-                      <div className="data-table-item-column" style={{ width: column.width }}>
-                      <ActionRow id={item.id}></ActionRow>
-                      </div>
-                    )
-                    : (
-                      <div className="data-table-item-column" style={{ width: column.width }}>
-                        <div> {item[column.id]}</div>
-                      </div>
-                    )}     
-                </>
-              ))}
-            </div>
-
-          </>
+        {data.map((item: RowType) => (
+            <ListItem item={item} key={item.id}  />
         ))}
       </div>
     </div>
