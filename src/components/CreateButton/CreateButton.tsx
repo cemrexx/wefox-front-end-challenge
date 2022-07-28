@@ -8,11 +8,8 @@ interface IButtonProps {
 const CreateButton: FunctionComponent<IButtonProps>=(props) =>{
     const {onClick} = props;
     return (
-        <div className="create-button">
-             <button onClick={onClick} type="button">
+        <div className="create-button" onClick={onClick}>
                  Add new Post
-            
-            </button>
         </div>
     );
 }

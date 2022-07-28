@@ -58,9 +58,11 @@ function App() {
       }
     },[modalVisible])
 
-    const handleInputChange = (event:any) => {
-      const target = event.target;
-
+    const handleInputChange = (event: Event & {
+      target: HTMLButtonElement
+    }) => {
+     
+      const { target } = event
       setFormData((prevData) => ({
         ...prevData,
         [target.name]: target.value,
